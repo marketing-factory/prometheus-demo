@@ -2,7 +2,7 @@
 
 Local [Prometheus](https://prometheus.io) + [Grafana](https://grafana.com) monitoring stack running inside [DDEV](https://ddev.readthedocs.io).
 
-Provided by [Christian Spoo](https://github.com/cspoo) at [Marketing Factory Digital GmbH](https://www.marketing-factory.de) as a demo stack for local development. **We are unable to provide support for this setup.**
+Provided by [Christian Spoo](https://github.com/tehplague) at [Marketing Factory Digital GmbH](https://www.marketing-factory.de) as a demo stack for local development.
 
 ---
 
