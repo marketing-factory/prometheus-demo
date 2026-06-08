@@ -1,0 +1,26 @@
+services:
+  prometheus:
+    container_name: "ddev-${DDEV_SITENAME}-prometheus"
+    image: prom/prometheus:latest
+    user: "${UID:-}:${GID:-}"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    volumes:
+      - type: bind
+        source: ./prometheus
+        target: /etc/prometheus
+      - type: volume
+        source: prom_data
+        target: /prometheus
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTPS_EXPOSE=9090:9090
+
+volumes:
+  prom_data:
